@@ -1,0 +1,27 @@
+
+from PyQt5.QtWidgets import QApplication, QPushButton, QMainWindow
+
+class Button:
+    def __init__(self, title, x, y):
+        self.title = title
+        self.x = x
+        self.y = y
+        self.appearance = True
+        self.button = QPushButton(self.title, None)
+        self.button.move(self.x, self.y)
+
+    def hide(self):
+        self.button.hide()
+        self.appearance = False
+
+    def show(self):
+        self.button.show()
+        self.appearance = True
+
+
+app = QApplication([])
+
+button = Button("ok", 100, 100)
+button.show()
+
+app.exec_()
