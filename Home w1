@@ -1,0 +1,39 @@
+from PyQt5.QtCore import*
+from PyQt5.QtWidgets import*
+from random import randint
+
+
+app = QApplication([])
+window = QWidget()
+window.setWindowTitle('Конкурс від Crazy People')
+window.resize(400,200)
+text = QLabel('В якому році канал отримав" золоту кнопку "від YouTube?')
+line= QVBoxLayout()
+line.addWidget(text,alignment=Qt.AlignCenter)
+
+def click():
+    lose = QMessageBox()
+    lose.setText('lose')
+    lose.exec_()
+def win():
+    win = QMessageBox()
+    win.setText('win')
+    win.exec_()
+b1 = QRadioButton('2015')
+b2 = QRadioButton('2005')
+b3 = QRadioButton('2020')
+b4 = QRadioButton('2017')
+
+
+b1.clicked.connect(win)
+b2.clicked.connect(click)
+b3.clicked.connect(click)
+b4.clicked.connect(click)
+
+line.addWidget(b1,alignment=Qt.AlignCenter)
+line.addWidget(b2,alignment=Qt.AlignCenter)
+line.addWidget(b3,alignment=Qt.AlignCenter)
+line.addWidget(b4,alignment=Qt.AlignCenter)
+
+window.setLayout(line)
+window.show()
